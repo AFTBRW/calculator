@@ -6,7 +6,7 @@
     <title>Revenue Comparison Calculator</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Poppins', sans-serif;
             text-align: center;
             padding: 20px;
         }
@@ -29,24 +29,41 @@
             margin: 5px 0;
             border: 1px solid #ddd;
             border-radius: 5px;
-            text-align: center;
+            text-align: left;
+            display: inline-block;
         }
         table {
             width: 100%;
             margin-top: 20px;
             border-collapse: collapse;
+            background-color: #f6f5f3;
         }
         th, td {
             border: 1px solid #ddd;
             padding: 10px;
         }
         th {
-            background-color: #f4f4f4;
+            background-color: #1f588d;
+            color: #ffffff;
+            font-family: 'Oswald Medium', sans-serif;
         }
         .result {
             font-size: 1.2em;
             font-weight: bold;
             margin-top: 15px;
+        }
+        .subtext {
+            font-size: 0.8em;
+            color: #777;
+        }
+        button {
+            background-color: #ea6f29;
+            color: #ffffff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
         }
     </style>
 </head>
@@ -56,8 +73,9 @@
         <h2>Revenue & Time Comparison Calculator</h2>
         
         <h3>1:1 Coaching</h3>
-        <label>Hourly Rate ($):</label>
-        <input type="number" id="hourlyRate" value="100">
+        <label>Cost per Coaching Package:</label>
+        <input type="number" id="packageCost" value="1000">
+        <div class="subtext">This would be for the live sessions, do not include other assessments or add-ons at this time.</div>
         
         <label>How many sessions does the client receive?:</label>
         <input type="number" id="sessionsPerClient" value="10">
@@ -99,7 +117,7 @@
 
     <script>
         function calculateRevenue() {
-            let hourlyRate = parseFloat(document.getElementById("hourlyRate").value);
+            let packageCost = parseFloat(document.getElementById("packageCost").value);
             let sessionsPerClient = parseFloat(document.getElementById("sessionsPerClient").value);
             let totalOneToOneClients = parseFloat(document.getElementById("totalOneToOneClients").value);
             
@@ -108,7 +126,7 @@
             let groupPrice = parseFloat(document.getElementById("groupPrice").value);
             
             // 1:1 Coaching Totals
-            let oneToOneRevenue = hourlyRate * totalOneToOneClients * sessionsPerClient;
+            let oneToOneRevenue = packageCost * totalOneToOneClients;
             let oneToOneHours = sessionsPerClient * totalOneToOneClients;
 
             // Group Coaching Totals
