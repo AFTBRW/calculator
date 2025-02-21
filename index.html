@@ -9,7 +9,7 @@
             font-family: 'Poppins', sans-serif;
             text-align: center;
             padding: 20px;
-            background-color: #f6f5f3; /* Sets the background color outside the box */
+            background-color: #f6f5f3;
         }
         .container {
             max-width: 600px;
@@ -18,34 +18,21 @@
             border: 1px solid #ddd;
             border-radius: 10px;
             box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-            background-color: #ffffff; /* Keeps the calculator box white */
-        }
-        body {
-            font-family: 'Poppins', sans-serif;
-            text-align: center;
-            padding: 20px;
-        }
-        .container {
-            max-width: 600px;
-            margin: auto;
-            padding: 20px;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+            background-color: #ffffff;
         }
         label {
-            display: inline-block;
-            width: 70%;
+            display: block;
+            font-family: 'Poppins', sans-serif;
             text-align: left;
+            margin-top: 10px;
         }
         input, select {
-            width: 25%;
+            width: 100%;
             padding: 5px;
             margin: 5px 0;
             border: 1px solid #ddd;
             border-radius: 5px;
             text-align: left;
-            display: inline-block;
         }
         table {
             width: 100%;
@@ -60,16 +47,13 @@
         th {
             background-color: #1f588d;
             color: #ffffff;
-            font-family: 'Oswald Medium', sans-serif;
-        }
-        .result {
-            font-size: 1.2em;
-            font-weight: bold;
-            margin-top: 15px;
+            font-family: 'Poppins', sans-serif;
+            text-align: left;
         }
         .subtext {
             font-size: 0.8em;
             color: #777;
+            text-align: left;
         }
         button {
             background-color: #ea6f29;
@@ -85,27 +69,27 @@
 <body>
 
     <div class="container">
-        <div class='subtext' style='text-align: left;'>Use this to play around with numbers to see the possibilities of what you could earn.</div>
+        <div class='subtext'>Use this to play around with numbers to see the possibilities of what you could earn.</div>
         
-        <h3 style='text-align: left; color: #1f588d;'>1:1 Coaching</h3>
-        <label><span style='font-family: Poppins, sans-serif; font-weight: normal;'>What is the price of your 1:1 coaching package?</span></label>
+        <h3 style='color: #1f588d;'>1:1 Coaching</h3>
+        <label>What is the price of your 1:1 coaching package?</label>
         <input type="number" id="packageCost" value="1000">
         
-        
-        <label><b>How many sessions are included in each 1:1 coaching package?:</b></label>
+        <label>How many sessions are included in each 1:1 coaching package?</label>
         <input type="number" id="sessionsPerClient" value="10">
         
-        <label><span style='font-family: Poppins, sans-serif; font-weight: normal;'>How many 1:1 clients do you work with at a time?</span></label>
+        <label>How many 1:1 clients do you work with at a time?</label>
         <input type="number" id="totalOneToOneClients" value="5">
         
-        <h3 style='text-align: left; color: #1f588d;'>Group Coaching</h3>
-        <label><span style='font-family: Poppins, sans-serif; font-weight: normal;'>How many clients do you want in your group coaching program?</span></label>
-        <div class='subtext'>No limit—enter any number!</div>
+        <h3 style='color: #1f588d;'>Group Coaching</h3>
+        <label style='text-align: left;'>How many clients do you want in your group coaching program?</label>
+        <input type="number" id="groupClients" value="10">
+        <div class='subtext'>No limit—enter any number!</div>
         
-        <label><b>How many live sessions does each client receive in this program?</b></label>
+        <label>How many live sessions does each client receive in this program?</label>
         <input type="number" id="groupSessions" value="6">
         
-        <label><b>What is the price of your group coaching program?</b></label>
+        <label>What is the price of your group coaching program?</label>
         <input type="number" id="groupPrice" value="500">
 
         <button onclick="calculateRevenue()">Calculate</button>
@@ -113,7 +97,7 @@
         <h3>Comparison Chart</h3>
         <table>
             <tr>
-                <th style='background-color: #ffffff;'></th>
+                <th></th>
                 <th>1:1 Coaching</th>
                 <th>Group Program</th>
             </tr>
@@ -146,7 +130,7 @@
 
             // Group Coaching Totals
             let groupRevenue = groupClients * groupPrice;
-            let groupHours = groupSessions; // Only live sessions count for hours spent
+            let groupHours = groupSessions;
 
             // Update UI
             document.getElementById("oneToOneRevenue").innerText = "$" + oneToOneRevenue.toLocaleString();
