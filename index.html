@@ -96,6 +96,9 @@
         <input type="number" id="groupPrice" value="500">
 
         <br><br><button onclick="calculateRevenue()" style='margin: 20px 0; padding: 10px 20px;'>Calculate</button><br><br>
+<p id='scrollMessage' style='display: none; font-family: Poppins, sans-serif; color: #1f588d; margin-top: 10px;'>
+    Scroll down to view the results.
+</p>
 
         <h3>Comparison Chart</h3>
         <div style='overflow-x: auto;'>
@@ -121,6 +124,9 @@
 
     <script>
         function calculateRevenue() {
+            document.getElementById('scrollMessage').style.display = 'block';
+
+
             let packageCost = parseFloat(document.getElementById("packageCost").value);
             let sessionsPerClient = parseFloat(document.getElementById("sessionsPerClient").value);
             let totalOneToOneClients = parseFloat(document.getElementById("totalOneToOneClients").value);
